@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import "../global.css";
 import GlobalProvider from '@/context/GlobalProvider'
 import { StatusBar } from 'expo-status-bar';
-import { PaperProvider } from 'react-native-paper'
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -33,7 +33,7 @@ const RootLayout = () => {
      if(!fontsLoaded && !error) return null;
 
   return (
-    <PaperProvider>
+    
     <GlobalProvider>
     <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen name="index" />
@@ -42,7 +42,7 @@ const RootLayout = () => {
     </Stack>
     <StatusBar/>
     </GlobalProvider>
-    </PaperProvider>
+    
   )
 }
 

@@ -59,7 +59,7 @@ const VideoCard: React.FC<{ video: VideoCardProps }> = ({
         //<View className="mb-4 h-[250px] bg-black-200">
         <VideoPlayer
           className="h-60 w-full"
-          source={video}
+          source={{ uri: video }}
           onVideoEnd={() => setplay(false)}
         />
       //</View>

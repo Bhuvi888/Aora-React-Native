@@ -5,9 +5,11 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  StyleSheet
 } from "react-native";
 import { icons } from "@/constants";
 import VideoPlayer from "./VideoPlayer";
+
 
 type Post = {
   $id: string;
@@ -40,6 +42,9 @@ const TrendingItem = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const isActive = activeItem?.$id === Item.$id;
 
+  
+
+
   return (
     <Animatable.View
       animation={isActive ? zoomIn : zoomOut}
@@ -49,9 +54,16 @@ const TrendingItem = ({
     >
       {isPlaying ? (
         <VideoPlayer
-          source={Item.video}
+        source={{ uri: Item.video }}
           onVideoEnd={() => setIsPlaying(false)}
         />
+       // <VideoView
+       //   style={styles.customStyle}
+       //   player={player} 
+       //   allowsFullscreen 
+       //   allowsPictureInPicture 
+       //   nativeControls
+       // />
       ) : (
         <TouchableOpacity
           activeOpacity={0.7}
@@ -108,3 +120,5 @@ const Trending = ({ posts = [] }: { posts: Post[] }) => {
 };
 
 export default Trending;
+
+
