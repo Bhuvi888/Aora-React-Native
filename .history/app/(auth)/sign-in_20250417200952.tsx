@@ -42,7 +42,7 @@ const Signin = () => {
         <View className="w-full min-h-[83vh] flex justify-center my-6 px-4">
           <Image
             source={images.logo}
-            className="w-[115px] h-[34px]"
+            className="w-[155px] h-[34px]"
           />
           <Text className="text-2xl text-white font-semibold mt-10 font-psemibold">
             Log in to Aora

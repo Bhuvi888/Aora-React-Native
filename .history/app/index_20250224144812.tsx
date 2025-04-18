@@ -21,7 +21,8 @@ export default function app() {
       <View className=" w-full min-h-[85vh]  items-center justify-center  px-4"> 
         <Image 
         source={images.logo}
-         className='w-[300px] h-[100px]'
+         resizeMode='contain'
+         className='w-[130px] h-[80px]'
         />
         <Image
         source={images.cards}
@@ -32,13 +33,13 @@ export default function app() {
         <Text className="text-white font-psemibold text-xl text-center justify-center gap-2">
           Discover endless possibilities and creativity with {' '}
           
-          <Text className='text-secondary-200 text-bold text-4xl font-bold'>
-            Aura
+          <Text className='text-secondary-200 text-bold text-3xl font-bold'>
+            Aora
           </Text>
           </Text>
           <Image
           source={images.path}
-          className='w-[160px] h-[14px] absolute -bottom-0 -right-0'
+          className='w-[136px] h-[15px] absolute -bottom-0 -right-3'
           resizeMode='contain'
           />
         </View>

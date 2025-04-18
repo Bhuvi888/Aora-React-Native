@@ -14,61 +14,50 @@ export default function VideoPlayer({
   onVideoEnd,
 }: VideoPlayerProps) {
   const player = useVideoPlayer(source, (player) => {
-    try {
-      player.loop = false;
-      player.addListener("playToEnd", onVideoEnd);
-      player.play(); // no catch needed, it's void
-    } catch (err) {
-      console.error("Video play error:", err);
-    }
+    player.loop = false;
+    player.addListener("playToEnd", onVideoEnd);
+    player.play();
   });
-
   const videoCallbacks = {
     ended: onVideoEnd,
   };
 
+  // check if the source is a valid vimeo video url or appwrite storage url
   if (source.uri.includes("vimeo.com")) {
     const videoId = source.uri
       .split("/")
       [source.uri.split("/").length - 1].split("?")[0];
 
     return (
-      <View style={styles.container}>
+      <View className={`rounded-lg bg-black ${className}`}>
         <Vimeo
-          style={styles.video}
+          
+          style={{ backgroundColor: "black" }}
+          startInLoadingState
           videoId={videoId}
           params="autoplay=true"
           handlers={videoCallbacks}
+          
         />
       </View>
     );
-  }
-
-  return (
-    <View style={styles.container}>
-      {player ? (
+  } else {
+    return (
+      
         <VideoView player={player} style={styles.video} />
-      ) : (
-        <View style={styles.fallback} />
-      )}
-    </View>
-  );
+      
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    height: 300,
-    backgroundColor: "black",
-    borderRadius: 16,
-    overflow: "hidden",
-  },
-  video: {
-    width: "100%",
-    height: "100%",
-  },
-  fallback: {
-    flex: 1,
-    backgroundColor: "#000",
-  },
-});
+const styles = StyleSheet.create(
+{
+  video:{
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    backgroundColor: 'black',
+  }
+}
+
+)

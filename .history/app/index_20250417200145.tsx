@@ -21,6 +21,7 @@ export default function app() {
       <View className=" w-full min-h-[85vh]  items-center justify-center  px-4"> 
         <Image 
         source={images.logo}
+         resizeMode='co'
          className='w-[300px] h-[100px]'
         />
         <Image

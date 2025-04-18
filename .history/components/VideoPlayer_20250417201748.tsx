@@ -14,13 +14,9 @@ export default function VideoPlayer({
   onVideoEnd,
 }: VideoPlayerProps) {
   const player = useVideoPlayer(source, (player) => {
-    try {
-      player.loop = false;
-      player.addListener("playToEnd", onVideoEnd);
-      player.play(); // no catch needed, it's void
-    } catch (err) {
-      console.error("Video play error:", err);
-    }
+    player.loop = false;
+    player.addListener("playToEnd", onVideoEnd);
+    player.play().catch((err) => console.error("Video play error:", err));
   });
 
   const videoCallbacks = {

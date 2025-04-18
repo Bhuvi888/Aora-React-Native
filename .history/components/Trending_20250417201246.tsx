@@ -56,7 +56,7 @@ const TrendingItem = ({
         <VideoPlayer
         source={{ uri: Item.video }}
           onVideoEnd={() => setIsPlaying(false)}
-        />
+        >
 
        // <VideoView
        //   style={styles.customStyle}

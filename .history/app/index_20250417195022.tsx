@@ -21,7 +21,8 @@ export default function app() {
       <View className=" w-full min-h-[85vh]  items-center justify-center  px-4"> 
         <Image 
         source={images.logo}
-         className='w-[300px] h-[100px]'
+         resizeMode='contain'
+         className='w-[130px] h-[80px]'
         />
         <Image
         source={images.cards}
@@ -38,7 +39,7 @@ export default function app() {
           </Text>
           <Image
           source={images.path}
-          className='w-[160px] h-[14px] absolute -bottom-0 -right-0'
+          className='w-[160px] h-[10px] absolute -bottom-0 -right-0'
           resizeMode='contain'
           />
         </View>
